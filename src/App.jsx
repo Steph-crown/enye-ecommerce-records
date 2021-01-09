@@ -2,6 +2,7 @@ import './App.css';
 import React, {Component} from 'react';
 import { connect } from "react-redux";
 import * as ACTIONS from "./store/actions/actions";
+import Container from './components/Container'
 
 import Loader from './components/Loader';
 
@@ -19,7 +20,7 @@ class App extends Component {
         this.setState({error: true})
         console.log(this.state.error)
       }
-    }, 2000);
+    }, 20000);
   }
 
   
@@ -29,8 +30,12 @@ class App extends Component {
         <div className="loader" style={{display: this.props.data ? "none" : "block"}}>
           <Loader />
         </div>
-        {console.log(this.props.data)}
         <h1 style={{display: this.state.error && !this.props.data ? "flex" : "none"}}>ERROR: INTERNET DISCONNECTED. <br /> Connect Your Internet and Refresh</h1>
+
+        <div style={{display: this.props.data ? "block" : "none"}} >
+          <Container />
+        </div>
+        
       </div>
     );
   }

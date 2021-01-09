@@ -12,3 +12,9 @@ export const setDataAction = (data) => {
         data
     }
 }
+
+export const setModeAction = () => {
+    return {
+        type: ACTION_TYPES.SET_MODE
+    }
+}

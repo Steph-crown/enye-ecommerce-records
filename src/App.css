@@ -1,3 +1,7 @@
+:root {
+  --black: #1e1e1e
+}
+
 .loader>div>svg {
   position: fixed;
   top: 0;
