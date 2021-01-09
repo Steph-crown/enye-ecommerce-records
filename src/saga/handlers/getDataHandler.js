@@ -12,5 +12,6 @@ export function* getdataHandler() {
         }
     } catch (error) {
         console.error(error);
+        
     }
 }
