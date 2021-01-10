@@ -1,13 +1,11 @@
 .middle-bar {
     width: 70%;
-    background-color: blue;
     min-height: calc(100vh - 60px);
 }
 .view-profile {
     width: calc(30% - 15px);
     min-height: calc(100vh - 60px);
-    border-radius: 20px;
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+    border-radius: 10px;
 }
 .RightBar {
     display: flex;
