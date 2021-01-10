@@ -1,0 +1,72 @@
+.TopBar {
+    padding: 15px 30px;
+    border-radius: 10px;
+}
+
+.TopBar h2 {
+    color: var(--brown);
+    font-weight: 300;
+    font-size: 1.9em;
+    margin-bottom: 20px;
+}
+
+.flex {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    min-height: 2px;
+    align-items: center;
+}
+
+.group b {
+    /* font-weight: 300; */
+    color: #6e6c6c;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.group p, .filter p {
+    font-weight: 300;
+}
+
+.three {
+    display: flex;
+    flex-direction: column;
+    height: 12px;
+    justify-content: space-between;
+    align-items: center;
+    width: 15px;
+}
+
+.three div {
+    width: 20px;
+    height: 2px;
+}
+
+.three div:nth-child(2) {
+    width: 15px;
+}
+
+.three div:nth-child(3) {
+    width: 10px;
+}
+
+.filter {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    width: 90px;
+    padding: 10px;
+    border: 1px solid #4e4d4d;
+    justify-content: space-between;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.group {
+    margin-bottom: 20px;
+}
+
+
+

@@ -42,7 +42,7 @@ class App extends Component {
         {/* <div className="loader" style={{display: this.props.data ? "block" : "none"}}>
           <Loader />
         </div>
-        <h1 style={{display: this.state.error && !this.props.data ? "flex" : "none"}}>ERROR: INTERNET DISCONNECTED. <br /> Connect Your Internet and Refresh</h1> */}
+        <h1 className="h1" style={{display: this.state.error && !this.props.data ? "flex" : "none"}}>ERROR: INTERNET DISCONNECTED. <br /> Connect Your Internet and Refresh</h1> */}
 
         <div style={{display: this.props.data ? "block" : "block"}} >
           <Container />
