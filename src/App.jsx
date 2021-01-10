@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import * as ACTIONS from "./store/actions/actions";
 import Container from './components/Container'
 
-import Loader from './components/Loader';
+// import Loader from './components/Loader';
 
 class App extends Component {
   constructor(props) {
