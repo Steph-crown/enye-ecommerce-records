@@ -23,7 +23,6 @@ const Container = (props) => {
             <div className="left-bar">
                 <Leftbar />
             </div>
-            <div className="left-holder"></div>
             <div className="right-bar">
                 <RightBar />
             </div>

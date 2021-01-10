@@ -1,0 +1,22 @@
+.middle-bar {
+    width: 70%;
+    background-color: blue;
+    min-height: calc(100vh - 70px);
+}
+.view-profile {
+    width: 30%;
+    background-color: yellow;
+    min-height: calc(100vh - 70px);
+}
+.RightBar {
+    display: flex;
+}
+
+@media (max-width: 1200px) {
+    .middle-bar {
+        width: 100%;
+    }
+    .view-profile {
+        display: none;
+    }
+}
