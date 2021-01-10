@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './../css/TopBar.css';
+import Select from 'react-select';
 
 
-const TopBar = (props) => {
-    let mode = props.mode
-    const genStyle = {
+class TopBar extends Component {
+    mode = this.props.mode
+    genStyle = {
         dark: {
             color: "#efefef",
             backgroundColor: "#1e1e1e"
@@ -16,34 +17,80 @@ const TopBar = (props) => {
         }
     }
 
-    const threeStyle = {
+    threeStyle = {
         dark: {backgroundColor: "#efefef"},
         light: {backgroundColor: "#1e1e1e"}
     }
 
-    return (
-        <div style={genStyle[mode]} className="TopBar">
-            <h2>Transaction Details</h2>
-            <div className="flex">
-                <div className="group">
-                    <b>No. of Challenges</b>
-                    <p>53</p>
-                </div>
-                <div className="group">
-                    <b>Capacity</b>
-                    <p>1 - 20</p>
-                </div>
-                <div className="filter">
-                    <div className="three">
-                        <div style={threeStyle[mode]}></div>
-                        <div style={threeStyle[mode]}></div>
-                        <div style={threeStyle[mode]}></div>
+
+    options = [
+        { value: 'blues', label: 'Blues' },
+        { value: 'rock', label: 'Rock' },
+        { value: 'jazz', label: 'Jazz' },
+        { value: 'orchestra', label: 'Orchestra' }
+    ];
+
+    gender = [
+        {value: 'male', label: 'Male'},
+        {value: 'female', label: 'Female'}
+    ]
+
+    selectStyles = {
+        option: (provided, state) => ({
+            ...provided,
+            borderBottom: '2px dotted green',
+            color: state.isSelected ? 'yellow' : 'black',
+            backgroundColor:'green'
+          }),
+          control: (provided) => ({
+            ...provided,
+            marginTop: "5%",
+          })
+    }
+
+    render() {
+        return (
+            <div style={this.genStyle[this.mode]} className="TopBar">
+                {/* <h2>Transaction Details</h2> */}
+                <div className="flex">
+                    <div className="group">
+                        <b>No. of Challenges</b>
+                        <p>53</p>
                     </div>
-                    <p>Filter</p>
+                    <div className="group">
+                        <b>Capacity</b>
+                        <p>1 - 20</p>
+                    </div>
+                    <div className="filter">
+                        <div className="three">
+                            <div style={this.threeStyle[this.mode]}></div>
+                            <div style={this.threeStyle[this.mode]}></div>
+                            <div style={this.threeStyle[this.mode]}></div>
+                        </div>
+                        <p>Filter</p>
+                    </div>
+                </div>
+    
+    
+                <div className="all-filters">
+                    <div className="gender group">
+                        <p>Gender</p>
+                        <div className="select">
+                            <Select styles = { this.customStyles } options={this.gender} />
+                        </div>
+                        
+                    </div>
+                    <div className="payment group">
+                        <p>Payment Method</p>
+                        <div className="select">
+                            <Select styles = { this.customStyles } options={this.options} />
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }
+    
 }
 const mapStateToProps = (state) => {
     return {

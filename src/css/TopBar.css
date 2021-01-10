@@ -2,21 +2,13 @@
     padding: 15px 30px;
     border-radius: 10px;
 }
-
-.TopBar h2 {
-    color: var(--brown);
-    font-weight: 300;
-    font-size: 1.9em;
-    margin-bottom: 20px;
-}
-
 .flex {
     display: flex;
     width: 100%;
     justify-content: space-between;
     flex-wrap: wrap;
     min-height: 2px;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .group b {
@@ -56,8 +48,8 @@
     display: flex;
     height: 40px;
     align-items: center;
-    width: 90px;
-    padding: 10px;
+    width: 100px;
+    padding: 10px 15px;
     border: 1px solid #4e4d4d;
     justify-content: space-between;
     border-radius: 10px;
@@ -68,5 +60,63 @@
     margin-bottom: 20px;
 }
 
+label {
+    /* display: flex; */
+    border: 1.5px solid #4e4d4d;
+    padding: 5px 10px;
+    margin-top: 10px;
+    display: inline-flex;
+    min-height: 10px;
+    align-items: center;
+    border-radius: 5px;
+}
 
+input {
+    background: transparent;
+}
 
+.fa-search {
+    font-size: 15px;
+}
+
+label input {
+    border: 0px solid #4e4d4d;
+    outline: none;
+    padding: 2px 10px;
+    font-weight: 300;
+    font-size: 1em;
+    letter-spacing: 1.3px;
+}
+
+.all-filters {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.select {
+    margin-top: 10px;
+}
+.all-filters .group {
+    width: 40%;
+}
+
+.css-yk16xz-control, .css-1pahdxg-control {
+    background-color: transparent !important;
+    border-color:  #4e4d4d !important;
+    outline: none;
+}
+
+.css-b8ldur-Input, .css-b8ldur-Input input {
+    color:  #7c7b7b !important;
+    letter-spacing: 1.2px;
+}
+
+.css-2613qy-menu {
+    color: red !important;
+}
+@media (max-width: 768px) {
+    label {
+        width: 100%;
+    }
+}

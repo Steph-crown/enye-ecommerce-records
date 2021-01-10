@@ -4,6 +4,8 @@
 
 .Leftbar h2 {
     color: var(--brown);
+    font-weight: 300;
+    font-size: 1.9em;
 }
 
 .Leftbar input {
@@ -25,18 +27,7 @@ nav {
 }
 
 nav .three {display: none;}
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: var(--brown);
-    opacity: 1; /* Firefox */
-  }
-  
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: var(--brown);
-  }
-  
-  ::-ms-input-placeholder { /* Microsoft Edge */
-    color: var(--brown);
-  }
+
 @media (max-width: 768px) {
     .Leftbar input {
         display: none;
