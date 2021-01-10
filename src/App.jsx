@@ -25,14 +25,26 @@ class App extends Component {
 
   
   render() {
+    let mode = this.props.mode
+    const cont = {
+        dark: {
+            color: "#efefef",
+            backgroundColor: "#1e1e1e"
+        },
+        light: {
+            color: "#1e1e1e",
+            backgroundColor: "#efefef"
+        }
+    };
+
     return (
-      <div className="App">
-        <div className="loader" style={{display: this.props.data ? "none" : "block"}}>
+      <div className="App" style={cont[mode]}>
+        {/* <div className="loader" style={{display: this.props.data ? "block" : "none"}}>
           <Loader />
         </div>
-        <h1 style={{display: this.state.error && !this.props.data ? "flex" : "none"}}>ERROR: INTERNET DISCONNECTED. <br /> Connect Your Internet and Refresh</h1>
+        <h1 style={{display: this.state.error && !this.props.data ? "flex" : "none"}}>ERROR: INTERNET DISCONNECTED. <br /> Connect Your Internet and Refresh</h1> */}
 
-        <div style={{display: this.props.data ? "block" : "none"}} >
+        <div style={{display: this.props.data ? "block" : "block"}} >
           <Container />
         </div>
         
@@ -45,7 +57,8 @@ class App extends Component {
 const mapStateToProps = (state) => {
   
   return {
-    data: state.setDataReducer.data
+    data: state.setDataReducer.data,
+    mode: state.setModeReducer.mode
   }
 };
 

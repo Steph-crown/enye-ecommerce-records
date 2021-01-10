@@ -1,6 +1,10 @@
 import React from 'react';
 // import * as ACTIONS from './../store/actions/actions';
 import {connect} from 'react-redux';
+import Leftbar from './Leftbar';
+import RightBar from './RightBar';
+
+import './../css/Container.css'
 
 const Container = (props) => {
     let mode = props.mode
@@ -15,9 +19,14 @@ const Container = (props) => {
         }
     }
     return (
-        <div style={cont[mode]}>
-            {props.mode}
-            THIS IS THE CONTAINER
+        <div style={cont[mode]} className="container">
+            <div className="left-bar">
+                <Leftbar />
+            </div>
+            <div className="left-holder"></div>
+            <div className="right-bar">
+                <RightBar />
+            </div>
         </div>
     );
 }
