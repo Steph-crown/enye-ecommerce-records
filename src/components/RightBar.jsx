@@ -2,18 +2,41 @@ import React from 'react';
 import MiddleBar from './MiddleBar';
 import ViewProfile from './ViewProfile';
 import './../css/RightBar.css';
+import {connect} from 'react-redux';
 
-const RightBar = () => {
+
+const RightBar = (props) => {
+    let mode = props.mode
+
+    const viewProfile = {
+        dark: {
+            color: "#efefef",
+            backgroundColor: "#1e1e1e"
+        },
+        light: {
+            color: "#1e1e1e",
+            backgroundColor: "#efefef"
+        }
+    }
+
     return (
         <div className="RightBar">
             <div className="middle-bar">
                 <MiddleBar />
             </div>
-            <div className="view-profile">
+            <div className="view-profile" style={viewProfile[mode]}>
                 <ViewProfile />
             </div>
         </div>
     );
 }
 
-export default RightBar;
+const mapStateToProps = (state) => {
+    return {
+        mode: state.setModeReducer.mode
+    }
+}
+
+
+
+export default connect(mapStateToProps)(RightBar);

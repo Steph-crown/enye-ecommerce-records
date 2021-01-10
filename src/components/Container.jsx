@@ -18,12 +18,23 @@ const Container = (props) => {
             backgroundColor: "#efefef"
         }
     }
+
+    const rightBar = {
+        dark: {
+            color: "#efefef",
+            backgroundColor: "#4B4E51"
+        },
+        light: {
+            color: "#1e1e1e",
+            backgroundColor: "#efefef"
+        }
+    }
     return (
         <div style={cont[mode]} className="container">
             <div className="left-bar">
                 <Leftbar />
             </div>
-            <div className="right-bar">
+            <div className="right-bar" style={rightBar[mode]} >
                 <RightBar />
             </div>
         </div>
