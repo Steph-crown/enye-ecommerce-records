@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './../css/TopBar.css';
-import Select from 'react-select';
 
 
 class TopBar extends Component {
@@ -35,18 +34,6 @@ class TopBar extends Component {
         {value: 'female', label: 'Female'}
     ]
 
-    selectStyles = {
-        option: (provided, state) => ({
-            ...provided,
-            borderBottom: '2px dotted green',
-            color: state.isSelected ? 'yellow' : 'black',
-            backgroundColor:'green'
-          }),
-          control: (provided) => ({
-            ...provided,
-            marginTop: "5%",
-          })
-    }
 
     render() {
         return (
@@ -72,7 +59,7 @@ class TopBar extends Component {
                 </div>
     
     
-                <div className="all-filters">
+                {/* <div className="all-filters">
                     <div className="gender group">
                         <p>Gender</p>
                         <div className="select">
@@ -86,7 +73,7 @@ class TopBar extends Component {
                             <Select styles = { this.customStyles } options={this.options} />
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         );
     }

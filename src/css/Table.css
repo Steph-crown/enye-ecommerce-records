@@ -1,0 +1,25 @@
+.Table h2 {
+    color: var(--brown);
+    font-weight: 300;
+}
+
+.Table {
+    padding: 20px 25px;
+}
+
+.table-flex {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+table td {
+    font-weight: 100;
+    letter-spacing: 1.1px;
+}
+
+div.tables {
+    width: 100%;
+    overflow-x: scroll;
+}

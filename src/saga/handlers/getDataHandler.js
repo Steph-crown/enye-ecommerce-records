@@ -6,9 +6,9 @@ export function* getdataHandler() {
     try {
         const response = yield call(getDataRequest);
 
-        const {data:{records}} = response;
-        if (records) {
-            yield put(setDataAction(records));
+        const {data} = response;
+        if (data) {
+            yield put(setDataAction(data));
         }
     } catch (error) {
         console.error(error);
