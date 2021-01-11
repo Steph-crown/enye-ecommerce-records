@@ -26,7 +26,7 @@ const Table = (props) => {
     dataTable = dataTable.map((profile, index) => (
         <tr key={profile.UserName}>
             <td>{index + 1}</td>
-            <td>{profile.FirstName + " " + profile.LastName}</td>
+            <td>{profile.FirstName + " &nbsp; " + profile.LastName}</td>
             <td>{profile.Gender}</td>
             <td>{profile.PaymentMethod}</td>
             <td>{profile.CreditCardType}</td>

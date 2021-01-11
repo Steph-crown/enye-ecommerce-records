@@ -23,3 +23,19 @@ div.tables {
     width: 100%;
     overflow-x: scroll;
 }
+
+th, td {
+    padding: 3px 10px;
+    text-align: left;
+}
+
+th {
+    /* font-weight: 300; */
+    letter-spacing: 1px;
+    color: #6e6c6c;
+    line-break: unset;
+}
+
+tr {
+    border-bottom: 1px solid #efefef;
+}
