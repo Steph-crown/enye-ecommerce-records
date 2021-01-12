@@ -29,8 +29,14 @@ const Table = (props) => {
             <td>{profile.CreditCardType}</td>
             <td>{profile.UserName}</td>
             <td colSpan="2">
-                <a href={"mailto:"+profile.Email} className="action fa fa-envelope">Email</a>
-                <a href={"tel:"+profile.Email} className="action fa fa-phone">Call</a>
+                <a href={"mailto:"+profile.Email} className="action ">
+                    <i className="fa fa-envelope"></i>
+                    Email
+                </a>
+                <a href={"tel:"+profile.Email} className="action ">
+                    <i className="fa fa-phone"></i>
+                    Call
+                </a>
             </td>
         </tr>
     ))
