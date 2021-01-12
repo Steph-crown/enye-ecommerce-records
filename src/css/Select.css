@@ -4,7 +4,7 @@
 
 .selected-text {
     border: 1px solid#4e4d4d;
-    padding: 8px 10px;
+    padding: 10px 15px;
     font-weight: 300;
     border-radius: 5px;
 }
@@ -23,5 +23,5 @@ ul {
 li {
     margin-bottom: 10px;
     border-bottom: 2px solid #1a100d;
-    padding: 10px;
+    padding: 10px 15px;
 }

@@ -8,6 +8,13 @@ import Select from './Select';
 
 class TopBar extends Component {
 
+    constructor(props) {
+        super(props)
+        this.state = {
+            filterDisplay: false
+        }
+    }
+
     threeStyle = {backgroundColor: "#ffffff"
     }
     
@@ -38,7 +45,7 @@ class TopBar extends Component {
                         <b>Capacity</b>
                         <p>1 - 20</p>
                     </div>
-                    <div className="filter">
+                    <div className="filter" onClick={()=>this.setState({filterDisplay: !this.state.filterDisplay})} style={this.state.filterDisplay ? {borderColor: "#33231e"} : {borderColor: " #4e4d4d"}}>
                         <div className="three">
                             <div style={this.threeStyle}></div>
                             <div style={this.threeStyle}></div>
@@ -49,7 +56,7 @@ class TopBar extends Component {
                 </div>
     
     
-                <div className="all-filters">
+                <div className="all-filters" style={this.state.filterDisplay ? {display: "flex"} : {display:"none"}}>
                     <div className="gender group">
                         <p>Gender</p>
                         <div className="select">
