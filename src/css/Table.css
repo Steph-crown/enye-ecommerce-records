@@ -38,12 +38,13 @@ th {
 
 table tr {
     border-bottom: thin solid #535353;
+    cursor:pointer;
 }
 
 table td, table th {
     white-space: nowrap;
     padding: 10px 15px;
-    cursor:pointer;
+
 }
 
 table {
