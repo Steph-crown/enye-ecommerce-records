@@ -1,35 +1,38 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './../css/TopBar.css';
+import records from '../db';
+
 
 
 class TopBar extends Component {
 
     threeStyle = {backgroundColor: "#ffffff"
     }
+    
+    payments = records.records.profiles.map(x => x.PaymentMethod);
 
-
-    options = [
-        { value: 'blues', label: 'Blues' },
-        { value: 'rock', label: 'Rock' },
-        { value: 'jazz', label: 'Jazz' },
-        { value: 'orchestra', label: 'Orchestra' }
-    ];
+    paymentMethod = [];
 
     gender = [
-        {value: 'male', label: 'Male'},
-        {value: 'female', label: 'Female'}
+        "Male", "Female"
     ]
 
 
     render() {
+        this.payments.forEach(x => {
+            if (!this.paymentMethod.includes(x)) {
+                this.paymentMethod.push(x)
+            }
+        })
+        console.log(this.paymentMethod)
         return (
             <div className="TopBar">
                 {/* <h2>Transaction Details</h2> */}
                 <div className="flex">
                     <div className="group">
                         <b>No. of Challenges</b>
-                        <p>53</p>
+                        <p>{records.size}</p>
                     </div>
                     <div className="group">
                         <b>Capacity</b>
