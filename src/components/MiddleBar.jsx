@@ -6,25 +6,17 @@ import {connect} from 'react-redux';
 
 
 const MiddleBar = (props) => {
-    let mode = props.mode
-
     const bars = {
-        dark: {
-            color: "#ffffff",
-            backgroundColor: "#1e1e1e"
-        },
-        light: {
-            color: "#1e1e1e",
-            backgroundColor: "#ffffff"
-        }
+        color: "#ffffff",
+        backgroundColor: "#1e1e1e"
     }
 
     return (
         <div>
-            <div className="top-bar" style={bars[mode]}>
+            <div className="top-bar" style={bars}>
                 <TopBar />
             </div>
-            <div className="table" style={bars[mode]}>
+            <div className="table" style={bars}>
                 <Table />
             </div>
         </div>
@@ -33,7 +25,6 @@ const MiddleBar = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        mode: state.setModeReducer.mode
     }
 }
 

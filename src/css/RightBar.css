@@ -1,12 +1,8 @@
 .middle-bar {
-    width: 70%;
+    width: 100%;
     min-height: calc(100vh - 60px);
 }
-.view-profile {
-    width: calc(30% - 15px);
-    min-height: calc(100vh - 60px);
-    border-radius: 10px;
-}
+
 .RightBar {
     display: flex;
     justify-content: space-between;

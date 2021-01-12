@@ -4,21 +4,8 @@ import './../css/TopBar.css';
 
 
 class TopBar extends Component {
-    mode = this.props.mode
-    genStyle = {
-        dark: {
-            color: "#ffffff",
-            backgroundColor: "#1e1e1e"
-        },
-        light: {
-            color: "#1e1e1e",
-            backgroundColor: "#ffffff"
-        }
-    }
 
-    threeStyle = {
-        dark: {backgroundColor: "#ffffff"},
-        light: {backgroundColor: "#1e1e1e"}
+    threeStyle = {backgroundColor: "#ffffff"
     }
 
 
@@ -37,7 +24,7 @@ class TopBar extends Component {
 
     render() {
         return (
-            <div style={this.genStyle[this.mode]} className="TopBar">
+            <div className="TopBar">
                 {/* <h2>Transaction Details</h2> */}
                 <div className="flex">
                     <div className="group">
@@ -50,9 +37,9 @@ class TopBar extends Component {
                     </div>
                     <div className="filter">
                         <div className="three">
-                            <div style={this.threeStyle[this.mode]}></div>
-                            <div style={this.threeStyle[this.mode]}></div>
-                            <div style={this.threeStyle[this.mode]}></div>
+                            <div style={this.threeStyle}></div>
+                            <div style={this.threeStyle}></div>
+                            <div style={this.threeStyle}></div>
                         </div>
                         <p>Filter</p>
                     </div>
@@ -81,7 +68,6 @@ class TopBar extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        mode: state.setModeReducer.mode
     }
 }
 

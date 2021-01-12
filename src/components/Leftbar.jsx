@@ -1,24 +1,14 @@
 import React from 'react';
 import './../css/LeftBar.css';
-import {connect} from 'react-redux';
-
 
 const Leftbar = (props) => {
-    let mode = props.mode
     const inputStyle = {
-        dark: {
-            color: "#ffffff",
-            borderBottom: "1px solid #ffffff"
-        },
-        light: {
-            color: "#1e1e1e",
-            borderBottom: "1px solid #1e1e1e"
-        }
+        color: "#ffffff",
+        borderBottom: "1px solid #ffffff"
     };
 
     const threeStyle = {
-        dark: {backgroundColor: "#ffffff"},
-        light: {backgroundColor: "#1e1e1e"}
+        backgroundColor: "#ffffff"
     }
 
     return (
@@ -29,23 +19,16 @@ const Leftbar = (props) => {
                     <p>Challenge</p>
                 </div>
                 <div className="three">
-                    <div style={threeStyle[mode]}></div>
-                    <div style={threeStyle[mode]}></div>
-                    <div style={threeStyle[mode]}></div>
+                    <div style={threeStyle}></div>
+                    <div style={threeStyle}></div>
+                    <div style={threeStyle}></div>
                 </div>
             </nav>
             
-            <input type="text" name="search" id="search" placeholder="Search By Name" style={inputStyle[mode]}/>
+            <input type="text" name="search" id="search" placeholder="Search By Name" style={inputStyle}/>
         </div>
     );
 }
 
-const mapStateToProps = (state) => {
-    return {
-        mode: state.setModeReducer.mode
-    }
-}
 
-
-
-export default connect(mapStateToProps)(Leftbar);
+export default (Leftbar);

@@ -5,13 +5,10 @@ import './../css/Table.css'
 
 
 const Table = (props) => {
-    const mode = props.mode
-
     const data = records.records.profiles;
 
     const inputStyle = {
-        dark: {color: "#ffffff"},
-        light: {color: "#1e1e1e"}
+        color: "#ffffff"
     }  
 
     const filter = (data) => {
@@ -24,12 +21,13 @@ const Table = (props) => {
     let dataTable = filteredData.slice(20 * (currentPage - 1), (20 * (currentPage - 1)) + 20);
 
     dataTable = dataTable.map((profile, index) => (
-        <tr key={profile.UserName}>
+        <tr key={profile.UserName} >
             <td>{index + 1}</td>
             <td>{profile.FirstName + " " + profile.LastName}</td>
             <td>{profile.Gender}</td>
             <td>{profile.PaymentMethod}</td>
             <td>{profile.CreditCardType}</td>
+            <td>{profile.UserName}</td>
             <td colSpan="2">
                 <a href={"mailto:"+profile.Email} className="action fa fa-envelope">Email</a>
                 <a href={"tel:"+profile.Email} className="action fa fa-phone">Call</a>
@@ -42,8 +40,7 @@ const Table = (props) => {
                 <h2>Profiles</h2>
                 <label htmlFor="gender-search">
                     <i className="fa fa-search"></i>
-                    <input style={inputStyle[mode]} type="text" id="name-search" placeholder="Search By Name" />
-                    {console.log(dataTable)}
+                    <input style={inputStyle} type="text" id="name-search" placeholder="Search By Name" />
                 </label>
             </div>
             <div className="tables">
@@ -55,6 +52,7 @@ const Table = (props) => {
                             <th>Gender</th>
                             <th>Payment Method</th>
                             <th>Credit Card Type</th>
+                            <th>Username</th>
                             <th colSpan="2">Action</th>
                         </tr>
                     </thead>
@@ -72,7 +70,6 @@ const Table = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        mode: state.setModeReducer.mode
     }
 }
 

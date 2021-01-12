@@ -13,8 +13,3 @@ export const setDataAction = (data) => {
     }
 }
 
-export const setModeAction = () => {
-    return {
-        type: ACTION_TYPES.SET_MODE
-    }
-}

@@ -25,20 +25,13 @@ class App extends Component {
 
   
   render() {
-    let mode = this.props.mode
     const cont = {
-        dark: {
-            color: "#ffffff",
-            backgroundColor: "#1e1e1e"
-        },
-        light: {
-            color: "#1e1e1e",
-            backgroundColor: "#ffffff"
-        }
+      color: "#ffffff",
+      backgroundColor: "#1e1e1e"
     };
 
     return (
-      <div className="App" style={cont[mode]}>
+      <div className="App" style={cont}>
         {/* <div className="loader" style={{display: this.props.data ? "block" : "none"}}>
           <Loader />
         </div>
@@ -58,7 +51,6 @@ const mapStateToProps = (state) => {
   
   return {
     data: state.setDataReducer.data,
-    mode: state.setModeReducer.mode
   }
 };
 
