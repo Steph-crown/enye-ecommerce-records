@@ -10,7 +10,7 @@ const Table = (props) => {
     const data = records.records.profiles;
 
     const inputStyle = {
-        dark: {color: "#efefef"},
+        dark: {color: "#ffffff"},
         light: {color: "#1e1e1e"}
     }  
 

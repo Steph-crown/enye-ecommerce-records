@@ -7,17 +7,17 @@ class TopBar extends Component {
     mode = this.props.mode
     genStyle = {
         dark: {
-            color: "#efefef",
+            color: "#ffffff",
             backgroundColor: "#1e1e1e"
         },
         light: {
             color: "#1e1e1e",
-            backgroundColor: "#efefef"
+            backgroundColor: "#ffffff"
         }
     }
 
     threeStyle = {
-        dark: {backgroundColor: "#efefef"},
+        dark: {backgroundColor: "#ffffff"},
         light: {backgroundColor: "#1e1e1e"}
     }
 

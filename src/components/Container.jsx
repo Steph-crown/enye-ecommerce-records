@@ -10,23 +10,23 @@ const Container = (props) => {
     let mode = props.mode
     const cont = {
         dark: {
-            color: "#efefef",
+            color: "#ffffff",
             backgroundColor: "#1e1e1e"
         },
         light: {
             color: "#1e1e1e",
-            backgroundColor: "#efefef"
+            backgroundColor: "#ffffff"
         }
     }
 
     const rightBar = {
         dark: {
-            color: "#efefef",
+            color: "#ffffff",
             backgroundColor: "#4B4E51"
         },
         light: {
             color: "#1e1e1e",
-            backgroundColor: "#efefef"
+            backgroundColor: "#ffffff"
         }
     }
     return (

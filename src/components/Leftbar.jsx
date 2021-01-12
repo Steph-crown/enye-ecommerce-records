@@ -7,8 +7,8 @@ const Leftbar = (props) => {
     let mode = props.mode
     const inputStyle = {
         dark: {
-            color: "#efefef",
-            borderBottom: "1px solid #efefef"
+            color: "#ffffff",
+            borderBottom: "1px solid #ffffff"
         },
         light: {
             color: "#1e1e1e",
@@ -17,7 +17,7 @@ const Leftbar = (props) => {
     };
 
     const threeStyle = {
-        dark: {backgroundColor: "#efefef"},
+        dark: {backgroundColor: "#ffffff"},
         light: {backgroundColor: "#1e1e1e"}
     }
 

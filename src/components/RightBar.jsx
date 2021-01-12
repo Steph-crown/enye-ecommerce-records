@@ -10,12 +10,12 @@ const RightBar = (props) => {
 
     const viewProfile = {
         dark: {
-            color: "#efefef",
+            color: "#ffffff",
             backgroundColor: "#1e1e1e"
         },
         light: {
             color: "#1e1e1e",
-            backgroundColor: "#efefef"
+            backgroundColor: "#ffffff"
         }
     }
 
