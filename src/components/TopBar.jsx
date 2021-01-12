@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './../css/TopBar.css';
 import records from '../db';
+import Select from './Select';
 
 
 
@@ -25,7 +26,6 @@ class TopBar extends Component {
                 this.paymentMethod.push(x)
             }
         })
-        console.log(this.paymentMethod)
         return (
             <div className="TopBar">
                 {/* <h2>Transaction Details</h2> */}
@@ -49,21 +49,21 @@ class TopBar extends Component {
                 </div>
     
     
-                {/* <div className="all-filters">
+                <div className="all-filters">
                     <div className="gender group">
                         <p>Gender</p>
                         <div className="select">
-                            <Select styles = { this.customStyles } options={this.gender} />
+                            <Select defaultText="Select One" optionsList={this.gender} />
                         </div>
                         
                     </div>
                     <div className="payment group">
                         <p>Payment Method</p>
                         <div className="select">
-                            <Select styles = { this.customStyles } options={this.options} />
+                            <Select defaultText="Select One" optionsList={this.paymentMethod} />
                         </div>
                     </div>
-                </div> */}
+                </div>
             </div>
         );
     }
