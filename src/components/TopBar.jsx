@@ -53,14 +53,14 @@ class TopBar extends Component {
                     <div className="gender group">
                         <p>Gender</p>
                         <div className="select">
-                            <Select defaultText="Select One" optionsList={this.gender} />
+                            <Select defaultText="Select One" optionsList={this.gender} isFor="gender-select" />
                         </div>
                         
                     </div>
                     <div className="payment group">
                         <p>Payment Method</p>
                         <div className="select">
-                            <Select defaultText="Select One" optionsList={this.paymentMethod} />
+                            <Select defaultText="Select One" optionsList={this.paymentMethod} isFor="payment-select" />
                         </div>
                     </div>
                 </div>

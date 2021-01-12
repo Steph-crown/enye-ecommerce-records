@@ -93,14 +93,20 @@ label input {
     margin-top: 20px;
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 .select {
     margin-top: 10px;
 }
 .all-filters .group {
-    width: 40%;
+    width: 160px;
+    max-width: 40%;
 }
+
+.all-filters .group:nth-of-type(1) {
+    margin-right: 30px;
+}
+
 /* @media (max-width: 768px) {
     label {
         width: 100%;

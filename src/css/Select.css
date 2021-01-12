@@ -1,0 +1,27 @@
+.custom-select-container {
+    cursor: pointer;
+}
+
+.selected-text {
+    border: 1px solid#4e4d4d;
+    padding: 8px 10px;
+    font-weight: 300;
+    border-radius: 5px;
+}
+
+.custom-select-container .activ {
+    border: 2px solid #33231e;
+}
+
+ul {
+    list-style-type: none;
+    background-color: #33231e;
+    font-weight: 300;
+    border-radius: 0 0 5px 5px;
+}
+
+li {
+    margin-bottom: 10px;
+    border-bottom: 2px solid #1a100d;
+    padding: 10px;
+}

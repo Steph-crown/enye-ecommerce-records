@@ -33,8 +33,8 @@ class Select extends React.Component {
   // select text and list area
   handleClickOutside = e => {
     if (
-      !e.target.classList.contains("custom-select-option") &&
-      !e.target.classList.contains("selected-text")
+      !e.target.classList.contains(this.props.isFor) &&
+      !e.target.classList.contains(this.props.isFor)
     ) {
       this.setState({
         showOptionList: false
@@ -66,7 +66,7 @@ class Select extends React.Component {
     return (
       <div className="custom-select-container">
         <div
-          className={showOptionList ? "selected-text active" : "selected-text"}
+          className={showOptionList ? ("selected-text activ " + this.props.isFor)  : ("selected-text " + this.props.isFor)}
           onClick={this.handleListDisplay}
         >
           {defaultSelectText}
@@ -76,12 +76,12 @@ class Select extends React.Component {
             {optionsList.map(option => {
               return (
                 <li
-                  className="custom-select-option"
-                  data-name={option.name}
-                  key={option.id}
+                  className={"custom-select-option "+ this.props.isFor}
+                  data-name={option}
+                  key={option}
                   onClick={this.handleOptionClick}
                 >
-                  {option.name}
+                  {option}
                 </li>
               );
             })}
