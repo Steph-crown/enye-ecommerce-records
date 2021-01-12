@@ -1,26 +1,37 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import records from '../db';
 import './../css/Table.css'
+import Pagination from './Pagination';
 
 
-const Table = (props) => {
-    const data = records.records.profiles;
+class Table extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            page: 1
+        }
+    }
+    data = records.records.profiles;
 
-    const inputStyle = {
+    inputStyle = {
         color: "#ffffff"
     }  
 
-    const filter = (data) => {
+    filter = (data) => {
         return data;
     }
 
-    const currentPage = 1;
+    handlePageChange = (newPage) => {
+        this.setState({page: newPage})
+    }
 
-    let filteredData = filter(data)
-    let dataTable = filteredData.slice(20 * (currentPage - 1), (20 * (currentPage - 1)) + 20);
+    currentPage = this.state.page;
 
-    dataTable = dataTable.map((profile, index) => (
+    filteredData = this.filter(this.data)
+    dataTable = this.filteredData.slice(20 * (this.currentPage - 1), (20 * (this.currentPage - 1)) + 20);
+
+    dataTable = this.dataTable.map((profile, index) => (
         <tr key={profile.UserName} >
             <td>{index + 1}</td>
             <td>{profile.FirstName + " " + profile.LastName}</td>
@@ -40,38 +51,41 @@ const Table = (props) => {
             </td>
         </tr>
     ))
-    return (
-        <div className="Table">
-            <div className="table-flex">
-                <h2>Profiles</h2>
-                <label htmlFor="gender-search">
-                    <i className="fa fa-search"></i>
-                    <input style={inputStyle} type="text" id="name-search" placeholder="Search By Name" />
-                </label>
-            </div>
-            <div className="tables">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Gender</th>
-                            <th>Payment Method</th>
-                            <th>Credit Card Type</th>
-                            <th>Username</th>
-                            <th colSpan="2">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {dataTable}
-                    </tbody>
 
-                </table>
+    render() {
+        return (
+            <div className="Table">
+                <div className="table-flex">
+                    <h2>Profiles</h2>
+                    <label htmlFor="gender-search">
+                        <i className="fa fa-search"></i>
+                        <input style={this.inputStyle} type="text" id="name-search" placeholder="Search By Name" />
+                    </label>
+                </div>
+                <div className="tables">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Payment Method</th>
+                                <th>Credit Card Type</th>
+                                <th>Username</th>
+                                <th colSpan="2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.dataTable}
+                        </tbody>
+    
+                    </table>
+                </div>
+                <Pagination page={this.state.page} handlePageChange={this.handlePageChange()} />
             </div>
-            
-            
-        </div>
-    );
+        );
+    }
+    
 }
 
 const mapStateToProps = (state) => {
