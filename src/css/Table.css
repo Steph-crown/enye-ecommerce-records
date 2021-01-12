@@ -71,3 +71,9 @@ table td a i {
 table {
     border-collapse: collapse;
 }
+
+.pagination {
+    margin: 30px auto;
+    width: 400px;
+    max-width: 80%;
+}

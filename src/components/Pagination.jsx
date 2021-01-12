@@ -1,14 +1,16 @@
 import React from 'react';
+import './../css/Pagination.css'
 
 const Pagination = (props) => {
-    page =props.page;
+    const noOfPages =props.noOfPages;
+    const page = props.page
     let arr = [];
-    while (arr.length <= page) {
+    while (arr.length < noOfPages) {
         arr.push(arr.length + 1)
     }
-    arr = arr.map(sn => <p>sn</p>)
+    arr = arr.map(sn => <div key={sn} className={"number" + (sn === page ? " active" : "")} onClick={()=>{props.handlePageChange(sn)}}>{sn}</div>)
     return (
-        <div>
+        <div className="Pagination">
             {arr}
         </div>
     );

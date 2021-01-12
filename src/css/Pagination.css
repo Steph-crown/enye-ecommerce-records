@@ -1,0 +1,28 @@
+.Pagination {
+    display: flex;
+    min-height: 20px;
+    align-items: center;
+}
+
+.number {
+    color: white;
+    background-color: transparent;
+    border: 1.2px solid white;
+    border-radius: 50%;
+    margin: 10px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.active {
+    color: var(--brown);
+    border-color: var(--brown);
+    background-color: #33231e;
+}
