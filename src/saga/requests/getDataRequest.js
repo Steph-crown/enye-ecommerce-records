@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export function getDataRequest() {
-    return axios.get('http://api.enye.tech/v1/challenge/records')
+    return axios.get('https://api.enye.tech/v1/challenge/records')
 }
