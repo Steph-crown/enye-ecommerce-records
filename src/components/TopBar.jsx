@@ -56,11 +56,11 @@ class TopBar extends Component {
                 <div className="flex">
                     <div className="group">
                         <b>No. of Challenges</b>
-                        <p>{records.size}</p>
+                        <p>{this.props.data.records.profiles.length}</p>
                     </div>
                     <div className="group">
                         <b>Capacity</b>
-                        <p>1 - 20</p>
+                        <p>20 per page</p>
                     </div>
                     <div className="filter" onClick={()=>this.setState({filterDisplay: !this.state.filterDisplay})} style={this.state.filterDisplay ? {borderColor: "#33231e"} : {borderColor: " #4e4d4d"}}>
                         <div className="three">
@@ -95,6 +95,7 @@ class TopBar extends Component {
 }
 const mapStateToProps = (state) => {
     return {
+        data: state.setDataReducer.data
     }
 }
 

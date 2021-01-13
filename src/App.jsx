@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import * as ACTIONS from "./store/actions/actions";
 import Container from './components/Container'
 
-// import Loader from './components/Loader';
+import Loader from './components/Loader';
 
 class App extends Component {
   constructor(props) {
@@ -32,14 +32,18 @@ class App extends Component {
 
     return (
       <div className="App" style={cont}>
-        {/* <div className="loader" style={{display: this.props.data ? "block" : "none"}}>
+        <div className="loader" style={{display: this.props.data ? "none" : "block"}}>
           <Loader />
         </div>
-        <h1 className="h1" style={{display: this.state.error && !this.props.data ? "flex" : "none"}}>ERROR: INTERNET DISCONNECTED. <br /> Connect Your Internet and Refresh</h1> */}
-
-        <div style={{display: this.props.data ? "block" : "block"}} >
+        <h1 className="h1" style={{display: this.state.error && !this.props.data ? "flex" : "none"}}>ERROR: INTERNET DISCONNECTED. <br /> Connect Your Internet and Refresh</h1>
+        {
+          this.props.data &&
+          <div style={{display: this.props.data ? "block" : "none"}} >
+          {console.log(this.props.data)}
           <Container />
-        </div>
+          </div>
+        }
+        
         
       </div>
     );

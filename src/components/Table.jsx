@@ -1,22 +1,19 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import records from '../db';
 import './../css/Table.css'
 import Pagination from './Pagination';
 
 
+
 class Table extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             page: 1,
             search: ""
         };
     }
-
     
-    data = records.records.profiles;
-
     inputStyle = {
         color: "#ffffff"
     }  
@@ -34,6 +31,11 @@ class Table extends Component {
 
     render() {
         // Function that filters data according to filter option chosen
+        // let records = 0
+        // console.log(this.props.data);
+        let records = this.props.data
+        // console.log(record.records);
+        let data = records.records.profiles;
         const filter = (data) => {
             
             data = data.filter(x => {
@@ -53,7 +55,7 @@ class Table extends Component {
             }).filter(x => x.FirstName.startsWith(this.state.search) || x.LastName.startsWith(this.state.search))
             return data;
         }
-        let filteredData = filter(this.data)
+        let filteredData = filter(data)
 
         // console.log(this.props);
 
@@ -122,10 +124,10 @@ class Table extends Component {
 }
 
 const mapStateToProps = (state) => {
-    // console.log(state.filterSelectReducer);
     return {
         genderSelect: state.filterSelectReducer.genderSelect,
-        paymentSelect: state.filterSelectReducer.paymentSelect
+        paymentSelect: state.filterSelectReducer.paymentSelect,
+        data: state.setDataReducer.data
     }
 }
 
