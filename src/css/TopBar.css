@@ -95,7 +95,7 @@ label input {
     width: 100%;
     justify-content: flex-start;
     min-height: 20px;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 .select {
     margin-top: 10px;
