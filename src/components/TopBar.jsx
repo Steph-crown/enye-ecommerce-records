@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import './../css/TopBar.css';
 import records from '../db';
 import Select from './Select';
+import * as ACTIONS from './../store/actions/actions'
 
 
 
@@ -11,7 +12,9 @@ class TopBar extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            filterDisplay: false
+            filterDisplay: false,
+            genderSelect: "",
+            paymentSelect: ""
         }
     }
 
@@ -19,12 +22,22 @@ class TopBar extends Component {
     }
     
     payments = records.records.profiles.map(x => x.PaymentMethod);
+    genders =  records.records.profiles.map(x => x.Gender);
+
 
     paymentMethod = [];
 
-    gender = [
-        "Male", "Female"
-    ]
+    gender = [];
+
+    onOptionClick = (option, isFor) => {
+        this.setState({[isFor]: option});
+        if (isFor === "genderSelect") {
+            this.props.updateGenderSelect(option);
+        } else {
+            this.props.updatePaymentSelect(option)
+        }
+        
+    }
 
 
     render() {
@@ -33,9 +46,13 @@ class TopBar extends Component {
                 this.paymentMethod.push(x)
             }
         })
+        this.genders.forEach(x => {
+            if (!this.gender.includes(x)) {
+                this.gender.push(x)
+            }
+        })
         return (
             <div className="TopBar">
-                {/* <h2>Transaction Details</h2> */}
                 <div className="flex">
                     <div className="group">
                         <b>No. of Challenges</b>
@@ -60,14 +77,14 @@ class TopBar extends Component {
                     <div className="gender group">
                         <p>Gender</p>
                         <div className="select">
-                            <Select defaultText="Select One" optionsList={this.gender} isFor="gender-select" />
+                            <Select defaultText="Select One" optionsList={this.gender} isFor="genderSelect"onOptionClick={this.onOptionClick} />
                         </div>
                         
                     </div>
                     <div className="payment group">
                         <p>Payment Method</p>
                         <div className="select">
-                            <Select defaultText="Select One" optionsList={this.paymentMethod} isFor="payment-select" />
+                            <Select defaultText="Select One" optionsList={this.paymentMethod} isFor="paymentSelect" onOptionClick={this.onOptionClick} />
                         </div>
                     </div>
                 </div>
@@ -81,6 +98,13 @@ const mapStateToProps = (state) => {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  
+    return {
+        updateGenderSelect: (data) => dispatch(ACTIONS.genderSelectAction(data)),
+        updatePaymentSelect: (data) => dispatch(ACTIONS.paymentSelectAction(data))
+    }
+}
 
 
-export default connect(mapStateToProps)(TopBar);
+export default connect(mapStateToProps, mapDispatchToProps)(TopBar);

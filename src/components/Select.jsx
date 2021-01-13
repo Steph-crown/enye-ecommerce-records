@@ -58,6 +58,7 @@ class Select extends React.Component {
       defaultSelectText: e.target.getAttribute("data-name"),
       showOptionList: false
     });
+    this.props.onOptionClick(e.target.getAttribute("data-name"), this.props.isFor)
   };
 
   render() {

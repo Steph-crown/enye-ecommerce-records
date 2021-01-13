@@ -2,11 +2,6 @@ import React from 'react';
 import './../css/LeftBar.css';
 
 const Leftbar = (props) => {
-    const inputStyle = {
-        color: "#ffffff",
-        borderBottom: "1px solid #ffffff"
-    };
-
     const threeStyle = {
         backgroundColor: "#ffffff"
     }
@@ -24,8 +19,6 @@ const Leftbar = (props) => {
                     <div style={threeStyle}></div>
                 </div>
             </nav>
-            
-            <input type="text" name="search" id="search" placeholder="Search By Name" style={inputStyle}/>
         </div>
     );
 }

@@ -1,8 +1,10 @@
 import setDataReducer from './setData';
 import { combineReducers } from "redux";
+import filterSelectReducer from './filterSelect'
 
 const rootReducer = combineReducers({
-    setDataReducer
+    setDataReducer,
+    filterSelectReducer
 });
 
 export default rootReducer;

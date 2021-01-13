@@ -9,7 +9,8 @@ class Table extends Component {
     constructor() {
         super();
         this.state = {
-            page: 1
+            page: 1,
+            search: ""
         };
     }
 
@@ -20,21 +21,43 @@ class Table extends Component {
         color: "#ffffff"
     }  
 
-    filter = (data) => {
-        return data;
-    }
+    
 
     handlePageChange = (newPage) => {
         this.setState({page: newPage})
     }
     
-
-    filteredData = this.filter(this.data)
+    handleSearch = (event) => {
+        this.setState({search: event.target.value});
+    }
     
 
     render() {
+        // Function that filters data according to filter option chosen
+        const filter = (data) => {
+            
+            data = data.filter(x => {
+                if (!this.props.genderSelect) {
+                    if (!this.props.paymentSelect) {
+                        return true
+                    } else {
+                        return x.PaymentMethod === this.props.paymentSelect
+                    }
+                } else {
+                    if (!this.props.paymentSelect) {
+                        return x.Gender === this.props.genderSelect
+                    } else {
+                        return (x.Gender === this.props.genderSelect) && (x.PaymentMethod === this.props.paymentSelect)
+                    }
+                }
+            }).filter(x => x.FirstName.startsWith(this.state.search) || x.LastName.startsWith(this.state.search))
+            return data;
+        }
+        let filteredData = filter(this.data)
 
-        let dataTable = this.filteredData.slice(20 * (this.state.page - 1), (20 * (this.state.page
+        // console.log(this.props);
+
+        let dataTable = filteredData.slice(20 * (this.state.page - 1), (20 * (this.state.page
              - 1)) + 20);
 
         dataTable = dataTable.map((profile, index) => (
@@ -62,12 +85,12 @@ class Table extends Component {
 
         return (
             <div className="Table">
-                {/* {console.log(this.state)} */}
+                {/* {console.log(this.props)} */}
                 <div className="table-flex">
                     <h2>Profiles</h2>
                     <label htmlFor="gender-search">
                         <i className="fa fa-search"></i>
-                        <input style={this.inputStyle} type="text" id="name-search" placeholder="Search" />
+                        <input style={this.inputStyle} type="text" id="name-search" placeholder="Search" onChange={this.handleSearch} />
                     </label>
                 </div>
                 <div className="tables">
@@ -90,7 +113,7 @@ class Table extends Component {
                     </table>
                 </div>
                 <div className="pagination">
-                    <Pagination page={this.state.page} noOfPages={Math.ceil(records.size / 20)} handlePageChange={this.handlePageChange}  />
+                    <Pagination page={this.state.page} noOfPages={Math.ceil(filteredData.length / 20)} handlePageChange={this.handlePageChange}  />
                 </div>
             </div>
         );
@@ -99,7 +122,10 @@ class Table extends Component {
 }
 
 const mapStateToProps = (state) => {
+    // console.log(state.filterSelectReducer);
     return {
+        genderSelect: state.filterSelectReducer.genderSelect,
+        paymentSelect: state.filterSelectReducer.paymentSelect
     }
 }
 

@@ -13,3 +13,16 @@ export const setDataAction = (data) => {
     }
 }
 
+export const genderSelectAction = (data) => {
+    return {
+        type: ACTION_TYPES.GENDER_SELECT,
+        data
+    }
+}
+
+export const paymentSelectAction = (data) => {
+    return {
+        type: ACTION_TYPES.PAYMENT_SELECT,
+        data
+    }
+}
